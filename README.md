@@ -1,4 +1,4 @@
-An SBT project to demonstrate the excellent [JZY3D](http://org.jzy3d)
+An SBT project to demonstrate the excellent [JZY3D](http://jzy3d.org)
 scientific plotting library.
 
 Edit `build.sbt` to pick your machine architecture.
