@@ -5,6 +5,10 @@ Edit `build.sbt` to pick your machine architecture.
 
 Then you can run the Java code samples provided by JZY3D.
 
+These samples will be converted to Scala shortly. Note that you can't run more 
+than one sample from a single SBT session, as the native code loading mechanism
+in SBT doesn't allow for this.
+
 ```
 $ sbt run
 [info] Loading global plugins from /Users/jason/.sbt/plugins
