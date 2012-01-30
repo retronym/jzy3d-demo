@@ -1,7 +1,5 @@
 package org.jzy3d.demos.surface
 
-import java.util.ArrayList
-import java.util.List
 import org.jzy3d.chart.Chart
 import org.jzy3d.colors.colormaps.ColorMapRainbow
 import org.jzy3d.demos.AbstractDemo
@@ -21,7 +19,7 @@ object BuildSurfaceDemo {
 
 class BuildSurfaceDemo extends AbstractDemo {
   def init() {
-    val distDataProp: Array[Array[Double]] = Array[Array[Double]](Array(.25, .45, .20), Array(.56, .89, .45), Array(.6, .3, .7))
+    val distDataProp = Array(Array(.25, .45, .20), Array(.56, .89, .45), Array(.6, .3, .7))
     val polygons = for {
       i <- distDataProp.indices.dropRight(1)
       j <- distDataProp(i).indices.dropRight(1)
@@ -36,10 +34,11 @@ class BuildSurfaceDemo extends AbstractDemo {
       for (coord <- coords) polygon.add(new Point(coord))
       polygon
     }
-    val surface: Shape = new Shape(polygons.toBuffer.asJava)
-    surface.setColorMapper(new ColorMapper(new ColorMapRainbow, surface.getBounds.getZmin, surface.getBounds.getZmax, new Color(1, 1, 1, 1f)))
-    surface.setWireframeDisplayed(true)
-    surface.setWireframeColor(org.jzy3d.colors.Color.BLACK)
+    val surface = new Shape(polygons.toBuffer.asJava)
+    import surface._
+    setColorMapper(new ColorMapper(new ColorMapRainbow, getBounds.getZmin, getBounds.getZmax, new Color(1, 1, 1, 1f)))
+    setWireframeDisplayed(true)
+    setWireframeColor(org.jzy3d.colors.Color.BLACK)
     chart = new Chart
     chart.getScene.getGraph.add(surface)
   }
