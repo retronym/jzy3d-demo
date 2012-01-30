@@ -22,11 +22,7 @@ object ColorWaveDemo {
 
 class ColorWaveDemo extends AbstractDemo {
   def init() {
-    val mapper: Mapper = new Mapper {
-      def f(x: Double, y: Double): Double = {
-        return x * math.sin(x * y)
-      }
-    }
+    val mapper: Mapper = (x: Double, y: Double) => x * math.sin(x * y)
     val range = new Range(-3, 3)
     val steps = 80
     val surface: Shape = Builder.buildOrthonormal(new OrthonormalGrid(range, steps, range, steps), mapper).asInstanceOf[Shape]

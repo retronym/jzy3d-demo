@@ -24,11 +24,7 @@ object WireSurfaceDemo {
 class WireSurfaceDemo extends AbstractDemo {
 
   def init() {
-    val mapper: Mapper = new Mapper {
-      def f(x: Double, y: Double): Double = {
-        return 10 * math.sin(x / 10) * math.cos(y / 20) * x
-      }
-    }
+    val mapper: Mapper = (x: Double, y: Double) => 10 * math.sin(x / 10) * math.cos(y / 20) * x
     val range = new Range(-150, 150)
     val steps = 50
     val surface: Shape = Builder.buildOrthonormal(new OrthonormalGrid(range, steps, range, steps), mapper).asInstanceOf[Shape]
@@ -39,7 +35,7 @@ class WireSurfaceDemo extends AbstractDemo {
     setWireframeColor(Color.BLACK)
     chart = new Chart(Quality.Advanced)
     chart.getScene.getGraph.add(surface)
-    val cbar: ColorbarLegend = new ColorbarLegend(surface, chart.getView.getAxe.getLayout)
+    val cbar = new ColorbarLegend(surface, chart.getView.getAxe.getLayout)
     cbar.setMinimumSize(new Dimension(100, 600))
     surface.setLegend(cbar)
   }

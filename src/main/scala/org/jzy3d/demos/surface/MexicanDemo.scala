@@ -22,12 +22,8 @@ object MexicanDemo {
 class MexicanDemo extends AbstractDemo {
 
   def init() {
-    val mapper: Mapper = new Mapper {
-      def f(x: Double, y: Double): Double = {
-        val sigma = 10
-        math.exp(-(x * x + y * y) / sigma) * math.abs(math.cos(2 * math.Pi * (x * x + y * y)))
-      }
-    }
+    val sigma = 10
+    val mapper: Mapper = (x: Double, y: Double) => math.exp(-(x * x + y * y) / sigma) * math.abs(math.cos(2 * math.Pi * (x * x + y * y)))
     val range = new Range(-0.5, .5)
     val steps = 50
     val surface: Shape = Builder.buildOrthonormal(new OrthonormalGrid(range, steps, range, steps), mapper).asInstanceOf[Shape]
