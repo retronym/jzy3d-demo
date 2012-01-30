@@ -1,9 +1,13 @@
-An SBT project to demonstrate the excellent [JZY3D](http://org.jzy3d)
+An SBT project to demonstrate the excellent [JZY3D](http://jzy3d.org)
 scientific plotting library.
 
 Edit `build.sbt` to pick your machine architecture.
 
 Then you can run the Java code samples provided by JZY3D.
+
+These samples will be converted to Scala shortly. Note that you can't run more 
+than one sample from a single SBT session, as the native code loading mechanism
+in SBT doesn't allow for this.
 
 ```
 $ sbt run
