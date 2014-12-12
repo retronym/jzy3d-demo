@@ -1,14 +1,12 @@
 package org.jzy3d.demos
 
 import java.awt.Component
-import java.awt.Rectangle
+
 import org.eclipse.swt.layout.FillLayout
-import org.eclipse.swt.widgets.Display
-import org.eclipse.swt.widgets.Shell
+import org.eclipse.swt.widgets.{Display, Shell}
 import org.jzy3d.bridge.swt.Bridge
-import org.jzy3d.chart.Chart
-import org.jzy3d.global.Settings
-import org.jzy3d.ui.ChartLauncher
+import org.jzy3d.chart.{Chart, ChartLauncher, Settings}
+import org.jzy3d.maths.Rectangle
 
 object Launcher {
   def openDemo(demo: IDemo) {
@@ -50,6 +48,6 @@ object Launcher {
     display.dispose()
   }
 
-  protected var DEFAULT_CANVAS_TYPE: String = "awt"
-  protected var DEFAULT_WINDOW: Rectangle = new Rectangle(0, 0, 600, 600)
+  protected val DEFAULT_CANVAS_TYPE: String = "awt"
+  protected val DEFAULT_WINDOW: Rectangle = new Rectangle(0, 0, 600, 600)
 }

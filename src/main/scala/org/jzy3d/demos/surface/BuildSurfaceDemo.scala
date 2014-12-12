@@ -1,15 +1,14 @@
 package org.jzy3d.demos.surface
 
-import org.jzy3d.chart.Chart
+import org.jzy3d.chart.factories.AWTChartComponentFactory
 import org.jzy3d.colors.colormaps.ColorMapRainbow
-import org.jzy3d.demos.AbstractDemo
-import org.jzy3d.demos.Launcher
-import org.jzy3d.maths.Coord3d
-import org.jzy3d.plot3d.primitives.Point
-import org.jzy3d.plot3d.primitives.Polygon
-import org.jzy3d.plot3d.primitives.Shape
-import scala.collection.JavaConverters._
 import org.jzy3d.colors.{Color, ColorMapper}
+import org.jzy3d.demos.{Launcher, AbstractDemo}
+import org.jzy3d.maths.Coord3d
+import org.jzy3d.plot3d.primitives.{Point, Polygon, Shape}
+import org.jzy3d.plot3d.rendering.canvas.Quality
+
+import scala.collection.JavaConverters._
 
 object BuildSurfaceDemo {
   def main(args: Array[String]) {
@@ -39,7 +38,7 @@ class BuildSurfaceDemo extends AbstractDemo {
     setColorMapper(new ColorMapper(new ColorMapRainbow, getBounds.getZmin, getBounds.getZmax, new Color(1, 1, 1, 1f)))
     setWireframeDisplayed(true)
     setWireframeColor(org.jzy3d.colors.Color.BLACK)
-    chart = new Chart
+    chart = AWTChartComponentFactory.chart(Quality.Advanced, "newt")
     chart.getScene.getGraph.add(surface)
   }
 }
